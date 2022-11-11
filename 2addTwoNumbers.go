@@ -20,7 +20,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	lastNode := result
 
 	for {
-		if l1 == nil && l2 == nil && reminder == false {
+		if l1 == nil && l2 == nil && !reminder {
 			break
 		}
 
