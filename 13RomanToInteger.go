@@ -21,6 +21,49 @@ func romanToInt(s string) int {
         "M": 1000,
     }
 
+    size := len(chars)
+    index := 0
+    
+    for index < size {
+        c1 := chars[index]
+
+        if index < size - 1 {
+            c2 := chars[index+1]
+            if symbolsMap[c1] < symbolsMap[c2] {
+                result -= symbolsMap[c1]
+                index += 1
+                continue
+            }
+        }
+
+        result += symbolsMap[c1]
+        index += 1
+    }
+    
+    return result
+}
+
+func romanToInt_firstAttempt(s string) int {
+    chars := strings.Split(s, "")
+    
+    result := 0
+    
+    symbolsMap := map[string]int{
+        "I": 1,
+        "IV": 4,
+        "V": 5,
+        "IX": 9,
+        "X": 10,
+        "XL": 40,
+        "L": 50,
+        "XC": 90,
+        "C": 100,
+        "CD": 400,
+        "D": 500,
+        "CM": 900,
+        "M": 1000,
+    }
+
     complexSymbols := []string{"IV", "IX", "XL", "XC", "CD", "CM"}
     size := len(chars)
     index := 0
